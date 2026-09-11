@@ -15,7 +15,7 @@ process callCNV {
         def spectre_args = params.spectre_args ?: ''
         """
         spectre CNVCaller \
-        --bin-size 1000 \
+        --bin-size ${params.mosdepth_spectre_bin_size} \
         --coverage readstats/ \
         --sample-id ${xam_meta.alias} \
         --output-dir spectre_output/ \

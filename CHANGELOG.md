@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Made the Spectre CNV `--bin-size` and mosdepth window size configurable via `--mosdepth_spectre_bin_size` (default: 1000). Previously this was hardcoded to 1000.
+  - `modules/local/wf-human-cnv.nf`: Replaced hardcoded `--bin-size 1000` with `${params.mosdepth_spectre_bin_size}`.
+  - `workflows/wf-human-cnv.nf`: Replaced hardcoded mosdepth window `"1000"` with `params.mosdepth_spectre_bin_size.toString()`.
+  - `nextflow.config`: Added `mosdepth_spectre_bin_size` parameter default.
+  - `nextflow_schema.json`: Added `mosdepth_spectre_bin_size` to the CNV options schema.
+  - `docs/07_input_parameters.md`: Documented the new parameter.
+  - `README.md`: Documented the new parameter.
+
 ## [v2.8.1]
 This patch release of wf-human-variation adds automatic model selection for data basecalled by the v6.0.0 HAC model. 
 Users of v2.8.0 do not need to adopt this release unless they have chosen to use Dorado with v6 models.

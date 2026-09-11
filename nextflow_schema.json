@@ -508,6 +508,12 @@
                         500,
                         1000
                     ]
+                },
+                "mosdepth_spectre_bin_size": {
+                    "type": "integer",
+                    "default": 1000,
+                    "description": "Bin size in bp for mosdepth windowing and Spectre CNV calling.",
+                    "help_text": "Larger sizes reduce noise, however this may result in reduced sensitivity."
                 }
             }
         },
